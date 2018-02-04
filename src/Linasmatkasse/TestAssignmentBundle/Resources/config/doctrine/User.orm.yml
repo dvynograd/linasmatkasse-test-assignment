@@ -1,0 +1,26 @@
+Linasmatkasse\TestAssignmentBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: Linasmatkasse\TestAssignmentBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+    manyToMany:
+        deliveries:
+          targetEntity: Delivery
+          joinTable:
+            name: users_delivieries
+            joinColumns:
+              user_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              delivery_id:
+                referencedColumnName: id

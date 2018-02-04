@@ -1,0 +1,4 @@
+linasmatkasse_test_assignment_homepage:
+    resource: "@LinasmatkasseTestAssignmentBundle/Controller/"
+    type:     annotation
+    prefix:   /

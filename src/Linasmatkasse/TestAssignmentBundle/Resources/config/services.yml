@@ -1,0 +1,23 @@
+services:
+#    linasmatkasse_test_assignment.example:
+#        class: Linasmatkasse\TestAssignmentBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    Linasmatkasse\TestAssignmentBundle\DataFixtures\:
+        resource: '../../DataFixtures'
+        tags: ['doctrine.fixture.orm']
+
+
+    Linasmatkasse\TestAssignmentBundle\Repository\:
+        resource: ../../Repository
+
+    linas.customer_deliveries_query:
+        class: Linasmatkasse\TestAssignmentBundle\Event\CustomerDeliveriesQueryHandler
+        tags:
+            - { name: kernel.event_listener, event: customer.deliveries.query }
+        arguments: ['@user_repository']
+
+    user_repository:
+        class: \Linasmatkasse\TestAssignmentBundle\Repository\UserRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - Linasmatkasse\TestAssignmentBundle\Entity\User

@@ -1,0 +1,14 @@
+Linasmatkasse\TestAssignmentBundle\Entity\Delivery:
+    type: entity
+    table: null
+    repositoryClass: Linasmatkasse\TestAssignmentBundle\Repository\DeliveryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: text
+    lifecycleCallbacks: {  }
